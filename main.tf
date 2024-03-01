@@ -18,7 +18,7 @@ data "aws_vpc" "default" {
   default = true
 }
 
-module "vpc" {
+module "web_vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
   name = "dev"
