@@ -46,7 +46,7 @@ module "autoscaling" {
   target_group_arns   = module.web_alb.target_group_arns
   security_groups     = [module.web_sg.security_group_id]
 
-  aimage_id     = data.aws_ami.app_ami.id
+  image_id     = data.aws_ami.app_ami.id
   instance_type = var.instance_type
 }
 
@@ -68,12 +68,6 @@ module "web_alb" {
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
-      targets = [
-        {
-          target_id = aws_instance.web.id
-          port = 80
-        }
-      ]
     }
   ]
 
